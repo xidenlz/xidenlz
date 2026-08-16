@@ -59,5 +59,4 @@
 ### Contact
 
 - **Email:** [uint64_t@hotmail.com](mailto:uint64_t@hotmail.com)
-- **GitHub:** [@xidenlz](https://github.com/xidenlz)
 - **Website:** [xidenlz.github.io/xidenlz](https://xidenlz.github.io/xidenlz/)

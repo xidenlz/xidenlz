@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Musaed - Tools &amp; Low-Level Software</title>
+  <meta name="description" content="Technical projects, reverse engineering utilities, and automation frameworks built with C/C++, Python, and Assembly.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Musaed Home">
+        Musaed <span class="brand-prefix">&lt;/&gt;</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="research.html" class="nav-link">Research</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="article-header">
+        <div class="article-breadcrumbs">
+          <a href="index.html">home</a> / <span>projects</span>
+        </div>
+        <h1 class="article-title">Technical Projects</h1>
+        <p class="hero-tagline" style="margin-bottom: 0;">Injection Frameworks, Graphics Hooking &amp; Binary Triage Automation</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;">
+
+        <!-- Project 1: NtInjector / NtLoader -->
+        <article class="card" id="nt-injector" style="padding: 2rem;">
+          <div class="card-meta">
+            <span class="card-category">Kernel &amp; User Injection Framework</span>
+            <span>C++17 / NT Native API / Driver</span>
+          </div>
+          <h2 class="card-title" style="font-size: 1.45rem;">NtInjector (NtLoader)</h2>
+          <p class="card-desc">
+            An advanced Windows injection framework operating exclusively through direct NT Native API calls with zero Win32 API wrappers 
+            and zero static IAT entries. All function pointers are resolved dynamically at runtime via PEB walking and a custom export resolver. 
+            Features modular JSON-driven configuration (<code>ntcfg.json</code>) supporting user-mode and kernel-mode execution paths.
+          </p>
+
+          <div class="callout" style="margin: 1rem 0;">
+            <div class="callout-title">Supported Injection Primitives</div>
+            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem;">
+              <li><strong>Manual Map:</strong> In-memory PE mapping with base relocations, import resolution, TLS callbacks, and SEH handling without registering in the PEB module list. Includes optional header and section zeroing (<code>.pdata</code>, <code>.rsrc</code>, <code>.reloc</code>).</li>
+              <li><strong>LdrLoadDll Stub:</strong> Writes an <code>LDR_DATA</code> struct and stub into the target, executed via <code>NtCreateThreadEx</code>.</li>
+              <li><strong>User-Mode APC Queue:</strong> Enumerates threads via <code>NtQuerySystemInformation</code> and queues <code>LdrLoadDll</code> via <code>NtQueueApcThread</code> to fire on alertable waits.</li>
+              <li><strong>Kernel Driver (NtKrnl):</strong> Dispatches injection via a custom driver (<code>\??\NtKrnldrv</code>) with automated driver unload upon completion.</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div class="card-tags">
+              <span class="tag">C++17</span>
+              <span class="tag">NT Native API</span>
+              <span class="tag">Kernel Driver</span>
+              <span class="tag">Manual Mapping</span>
+              <span class="tag">PEB Walking</span>
+              <span class="tag">LdrLoadDll</span>
+            </div>
+            <a href="https://www.unknowncheats.me/forum/general-programming-and-reversing/735809-ntldr-windowsnt-injector.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download Binary (UnknownCheats)</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2: Screenshot Detection Bypass -->
+        <article class="card" id="screenshot-detection-bypass" style="padding: 2rem;">
+          <div class="card-meta">
+            <span class="card-category">Graphics Hooking &amp; Anti-Cheat Research</span>
+            <span>C++ / MinHook / GDI</span>
+          </div>
+          <h2 class="card-title" style="font-size: 1.45rem;">Screenshot Detection Bypass</h2>
+          <p class="card-desc">
+            A specialized Windows graphics hooking utility that intercepts screen capture routines (<code>BitBlt</code> in <code>gdi32.dll</code>). 
+            Demonstrates how anti-cheat and security capture routines can be hooked to return clean framebuffers to detection scanners while preserving active overlays in testing environments.
+          </p>
+
+          <div class="callout" style="margin: 1rem 0;">
+            <div class="callout-title">Core Capabilities</div>
+            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem;">
+              <li><strong>BitBlt Interception:</strong> Hooks <code>gdi32!BitBlt</code> to filter overlay layers from screen capture buffers.</li>
+              <li><strong>Internal Hook &amp; Test Suite:</strong> Includes an internal DLL hook engine and a standalone target testing dummy application.</li>
+              <li><strong>Broad Compatibility:</strong> Applicable to anti-cheat screenshot routines (PunkBuster, FairFight, Ricochet) utilizing GDI capture mechanisms.</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div class="card-tags">
+              <span class="tag">C++</span>
+              <span class="tag">MinHook</span>
+              <span class="tag">GDI32</span>
+              <span class="tag">BitBlt</span>
+              <span class="tag">Screen Capture</span>
+              <span class="tag">Anti-Cheat Research</span>
+            </div>
+            <a href="https://github.com/xidenlz/Screenshot-Detection-Bypass" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <span>Source on GitHub</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3: PE Analyzer Suite -->
+        <article class="card" id="pe-analyzer-suite" style="padding: 2rem;">
+          <div class="card-meta">
+            <span class="card-category">Binary Analysis &amp; Triage Suite</span>
+            <span>Python &amp; C++ / Zydis Engine</span>
+          </div>
+          <h2 class="card-title" style="font-size: 1.45rem;">PE Analyzer Suite</h2>
+          <p class="card-desc">
+            A specialized binary analysis and moderation framework engineered for automated sample triage, embedded binary extraction, 
+            and instruction-level disassembly. Features dedicated tooling across Windows and Linux platforms:
+          </p>
+
+          <div class="code-block" style="margin: 1.25rem 0;">
+            <div class="code-header">
+              <span class="code-lang">Suite Components</span>
+              <span>Tool Architecture</span>
+            </div>
+            <pre><code><span class="syn-var">├── pe_analyzer.py</span>          <span class="syn-com"># Windows PE triage &amp; embedded payload extraction</span>
+<span class="syn-var">├── pe_analyzer_linux.py</span>    <span class="syn-com"># Linux PE/ELF triage &amp; symbol inspection</span>
+<span class="syn-var">└── pe_analyzer.exe</span>         <span class="syn-com"># Zydis-based instruction analysis &amp; GetProcAddress tracing</span></code></pre>
+          </div>
+
+          <div class="callout" style="margin: 1rem 0;">
+            <div class="callout-title">Core Capabilities</div>
+            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem;">
+              <li><strong>Embedded Binary Extraction:</strong> Identifies nested executable files (<code>.exe</code>, <code>.dll</code>, <code>.sys</code>) inside host binaries and accurately dumps them by calculating the exact raw <strong>Offset &amp; Size</strong>.</li>
+              <li><strong>Heuristic &amp; Rule Scanning:</strong> Inspects section entropy anomalies and scans string tables for external C2 indicators, Discord webhooks, port-forwarding tunnels, and loader markers.</li>
+              <li><strong>Zydis Assembly Disassembly:</strong> High-throughput x86/x64 instruction parsing in C++ to trace dynamic import resolution and locate calls to <code>GetProcAddress</code> in obfuscated samples.</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div class="card-tags">
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">Zydis Disassembler</span>
+              <span class="tag">Offset &amp; Size Dumping</span>
+              <span class="tag">PE / ELF Analysis</span>
+              <span class="tag">Malware Triage</span>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+              [Private Research Tool / Unreleased]
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-status">
+        <span class="hero-status-dot"></span>
+        <span>Security Research &amp; Engineering</span>
+      </div>
+      <div>&copy; 2026 Musaed. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://github.com/xidenlz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

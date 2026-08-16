@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Archive | Musaed - Low-Level Security Research</title>
+  <meta name="description" content="Technical research papers, reverse engineering write-ups, and vulnerability analysis archive.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Musaed Home">
+        Musaed <span class="brand-prefix">&lt;/&gt;</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="research.html" class="nav-link active">Research</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="article-header">
+        <div class="article-breadcrumbs">
+          <a href="index.html">home</a> / <span>research</span>
+        </div>
+        <h1 class="article-title">Research Archive</h1>
+        <p class="hero-tagline" style="margin-bottom: 0;">Comprehensive Technical Write-Ups &amp; Binary Reverse Engineering</p>
+      </div>
+
+      <!-- Research Listings -->
+      <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;">
+        
+        <!-- Research Paper 1 -->
+        <article class="card" style="padding: 2rem;">
+          <div class="card-meta">
+            <span class="card-category">Kernel &amp; Anti-Cheat Research</span>
+            <span>Date: 2026</span>
+          </div>
+          <h2 class="card-title" style="font-size: 1.45rem;">
+            <a href="research/battleye-internals.html">BattlEye: Stack Walking</a>
+          </h2>
+          <p class="card-desc">
+            An in-depth technical analysis of BattlEye's kernel-side stack-walking and validation routines. Explores thread resolution with <code>PsLookupThreadByThreadId</code>,
+            asynchronous stack collection using <code>KeInitializeApc</code> and <code>RtlWalkFrameChain</code>, frame address boundary checks, and report generation via <code>BEDaisy::Report::ThreadStackReport</code>.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div class="card-tags">
+              <span class="tag">Kernel APCs</span>
+              <span class="tag">Stack Walking</span>
+              <span class="tag">RtlWalkFrameChain</span>
+              <span class="tag">Reverse Engineering</span>
+              <span class="tag">Memory Validation</span>
+            </div>
+            <a href="research/battleye-internals.html" class="btn btn-secondary">
+              <span>Read Full Paper</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Upcoming Research -->
+        <article class="card" style="padding: 2rem; border-color: var(--border-subtle);">
+          <div class="card-meta">
+            <span class="card-category" style="color: var(--accent-cyan);">Upcoming Research</span>
+            <span>In Progress</span>
+          </div>
+          <h2 class="card-title" style="font-size: 1.45rem;">
+            Anti-Cheat Expert Internals (ACE)
+          </h2>
+          <p class="card-desc">
+            Technical research and reverse engineering into Tencent's Anti-Cheat Expert (ACE) architecture. Investigates kernel-mode driver callbacks, memory protection primitives, client integrity heartbeats, and anti-tamper enforcement mechanisms.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Anti-Cheat Expert (ACE)</span>
+            <span class="tag">Kernel Drivers</span>
+            <span class="tag">Integrity Verification</span>
+            <span class="tag">Reverse Engineering</span>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-status">
+        <span class="hero-status-dot"></span>
+        <span>Security Research &amp; Engineering</span>
+      </div>
+      <div>&copy; 2026 Musaed. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://github.com/xidenlz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

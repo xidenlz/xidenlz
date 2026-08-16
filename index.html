@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musaed | Reverse Engineering &amp; Low-Level Security Research</title>
+  <meta name="description" content="Technical portfolio and research blog of Musaed. Specializing in Reverse Engineering, Windows Internals, Low-Level Programming, and Software Security.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Musaed Home">
+        Musaed <span class="brand-prefix">&lt;/&gt;</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="research.html" class="nav-link">Research</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    <div class="container">
+      
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-tag">
+          <span class="hero-status-dot"></span>
+          <span>Security &amp; Low-Level Research</span>
+        </div>
+        <h1 class="hero-title">Musaed</h1>
+        <p class="hero-tagline">Reverse Engineering • Windows Internals • Low-Level Programming • Security Research</p>
+        <p class="hero-intro">
+          Computer Science &amp; Data Analysis student at King Faisal University (KFU), graduating in February 2027. 
+          Focused on binary analysis, kernel-level mechanisms, disassembly, and software security. Specializing in x86/x64 architecture, 
+          PE file structures, and anti-tamper systems.
+        </p>
+        <div class="hero-actions">
+          <a href="research.html" class="btn btn-primary">
+            <span>Explore Research</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="https://github.com/xidenlz" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>GitHub Profile</span>
+          </a>
+          <a href="contact.html" class="btn btn-secondary">
+            <span>Contact</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Featured Research Spotlight -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-prefix">//</span> Featured Research
+          </h2>
+          <a href="research.html" class="section-link">View all research</a>
+        </div>
+
+        <div class="featured-card">
+          <div class="featured-badge">In-Depth Technical Analysis</div>
+          <h3><a href="research/battleye-internals.html">BattlEye: Stack Walking</a></h3>
+          <p class="card-desc">
+            A technical analysis of BattlEye's kernel-side stack walking and validation logic. Covers thread lookup via <code>PsLookupThreadByThreadId</code>,
+            APC stack collection with <code>RtlWalkFrameChain</code>, address validation against known image boundaries, and telemetry dispatching via <code>BEDaisy::Report::ThreadStackReport</code>.
+          </p>
+          <div class="card-meta">
+            <span>Published: 2026</span>
+            <span>Tags: Kernel APCs, Stack Walking, RtlWalkFrameChain, Memory Validation</span>
+          </div>
+          <div style="margin-top: 1.2rem;">
+            <a href="research/battleye-internals.html" class="btn btn-secondary">
+              <span>Read Full Paper</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Preview -->
+      <section style="margin-top: 3.5rem;">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-prefix">//</span> Selected Projects
+          </h2>
+          <a href="projects.html" class="section-link">View all projects</a>
+        </div>
+
+        <div class="grid-3">
+          <!-- Project 1 -->
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-category">Injection Framework</span>
+              <span>C++17 / NT Native API</span>
+            </div>
+            <h3 class="card-title"><a href="projects.html#nt-injector">NtInjector (NtLoader)</a></h3>
+            <p class="card-desc">
+              Advanced multi-mode injection framework operating solely via direct NT Native APIs with zero static IAT footprint. Supports Manual Mapping with header wiping, user-mode APC queuing with <code>LdrLoadDll</code>, and kernel driver dispatching.
+            </p>
+            <div class="card-tags">
+              <span class="tag">C++17</span>
+              <span class="tag">NT Native API</span>
+              <span class="tag">Kernel Driver</span>
+              <span class="tag">Manual Map</span>
+              <span class="tag">LdrLoadDll</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-category">Graphics Hooking</span>
+              <span>C++ / MinHook</span>
+            </div>
+            <h3 class="card-title"><a href="projects.html#screenshot-detection-bypass">Screenshot Bypass</a></h3>
+            <p class="card-desc">
+              Graphics API hooking utility intercepting <code>gdi32!BitBlt</code> to return clean framebuffers to anti-cheat scanners while preserving active overlays in test environments.
+            </p>
+            <div class="card-tags">
+              <span class="tag">C++</span>
+              <span class="tag">MinHook</span>
+              <span class="tag">BitBlt</span>
+              <span class="tag">Anti-Cheat</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-category">Binary Triage</span>
+              <span>Python / C++ / Zydis</span>
+            </div>
+            <h3 class="card-title"><a href="projects.html#pe-analyzer-suite">PE Analyzer Suite</a></h3>
+            <p class="card-desc">
+              Cross-platform triage toolkit featuring Python scripts for PE/ELF moderation and payload extraction via exact Offset &amp; Size dumping, paired with a C++ Zydis instruction engine.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">Zydis</span>
+              <span class="tag">Payload Extraction</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Blog Preview -->
+      <section style="margin-top: 3.5rem;">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-prefix">//</span> Recent Notes &amp; Findings
+          </h2>
+          <a href="blog.html" class="section-link">View all posts</a>
+        </div>
+
+        <div class="grid-2">
+          <!-- Post 1: Real-world Triage -->
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-category">Malware Triage</span>
+              <span>Case Study</span>
+            </div>
+            <h3 class="card-title"><a href="blog/triage-quasar-rat-case-study.html">Malware Triage: Uncovering a Quasar RAT Disguised as a Game Cheat</a></h3>
+            <p class="card-desc">
+              Static and dynamic analysis of a multi-tier decoy archive: identifying an empty Visual Basic GUI, analyzing a Go dropper, and mapping C2 TCP tunnels via Any.Run.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Malware Triage</span>
+              <span class="tag">Quasar RAT</span>
+              <span class="tag">Any.Run</span>
+            </div>
+          </div>
+
+          <!-- Post 2: XOR Deobfuscation -->
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-category">Reverse Engineering</span>
+              <span>Technical Note</span>
+            </div>
+            <h3 class="card-title"><a href="blog/defeating-malware-obfuscation-xor.html">Defeating Malware Obfuscation: XOR String De-obfuscation</a></h3>
+            <p class="card-desc">
+              Recognizing SIMD vector operations (<code>_mm_xor_ps</code>) in IDA Pro, calculating bitwise XOR keys, and automating string recovery with Python.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Reverse Engineering</span>
+              <span class="tag">XOR Deobfuscation</span>
+              <span class="tag">IDA Pro</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-status">
+        <span class="hero-status-dot"></span>
+        <span>Security Research &amp; Engineering</span>
+      </div>
+      <div>&copy; 2026 Musaed. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://github.com/xidenlz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -53,14 +53,6 @@
 - **Binary Analysis &amp; Reverse Engineering:** Static/dynamic analysis, PE format internals, and disassembly.
 - **Tooling &amp; Automation:** Custom analysis scripts, instruction parsing, and payload extraction.
 
----
-
-### Selected Write-Ups &amp; Projects
-
-- **[BattlEye: Stack Walking](https://xidenlz.github.io/xidenlz/research/battleye-internals.html)** – Kernel APC stack collection and origin validation.
-- **[NtInjector (NtLoader)](https://www.unknowncheats.me/forum/general-programming-and-reversing/735809-ntldr-windowsnt-injector.html)** – Windows injector operating via NT Native APIs and driver dispatch.
-- **[Screenshot Detection Bypass](https://github.com/xidenlz/Screenshot-Detection-Bypass)** – `gdi32!BitBlt` capture hook for test overlays.
-- **PE Analyzer Suite** – Windows/Linux triage tools with instruction-level disassembly.
 
 ---
 

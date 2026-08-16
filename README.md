@@ -49,9 +49,10 @@
 
 ### Focus &amp; Research
 
-- **Windows Internals &amp; Anti-Cheat:** Kernel callbacks, driver architecture, and stack-walking validation.
-- **Binary Analysis &amp; Reverse Engineering:** Static/dynamic analysis, PE format internals, and disassembly.
-- **Tooling &amp; Automation:** Custom analysis scripts, instruction parsing, and payload extraction.
+* **Windows Internals & System-Level Engineering:** Advanced understanding of Windows internals, kernel architecture, execution mechanisms, driver development, memory management, callback infrastructure, process/thread behavior, and low-level system instrumentation.
+* **Binary Analysis & Reverse Engineering:** In-depth analysis of native binaries across x86/x64 architectures, PE/COFF internals, compiler behavior, assembly, control-flow reconstruction, static and dynamic analysis, debugging, and software behavior characterization.
+* **Low-Level Tooling & Automation:** Development of sophisticated analysis tooling, custom instrumentation, instruction and data-flow parsing, binary transformation pipelines, automated triage, signature generation, and research-oriented workflows for investigating complex software systems.
+
 
 
 ---
